@@ -11,7 +11,7 @@ class ArmySpec extends ObjectBehavior
     public function let()
     {
         $name = 'Dark Angels';
-        $faction = new Faction('imperium_of_man');
+        $faction = new Faction('imperium_of_man', 'Imperium of Man');
         $this->beConstructedWith($name, $faction);
     }
 
@@ -23,7 +23,7 @@ class ArmySpec extends ObjectBehavior
 
     function it_should_give_me_its_faction()
     {
-        $faction = new Faction('imperium_of_man');
+        $faction = new Faction('imperium_of_man', 'Imperium of Man');
         $this->getFaction()->shouldBeLike($faction);
     }
 }

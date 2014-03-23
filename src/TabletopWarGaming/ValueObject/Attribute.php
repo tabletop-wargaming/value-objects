@@ -2,7 +2,9 @@
 
 namespace TabletopWargaming\ValueObject;
 
-class Attribute
+use \TabletopWargaming\ValueObject\Attribute\GameAttribute;
+
+class Attribute implements GameAttribute
 {
     private $id;
 
