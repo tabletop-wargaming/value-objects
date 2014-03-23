@@ -28,6 +28,11 @@ class System
         $this->format = $format;
     }
 
+    public function __toString()
+    {
+        return $this->getUnit();
+    }
+
     public function getName()
     {
         return $this->name;

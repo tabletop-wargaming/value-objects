@@ -18,6 +18,7 @@ class SystemSpec extends ObjectBehavior
         );
     }
 
+
     function it_gives_me_the_system_name()
     {
         $this->getName()->shouldReturn(System::IMPERIAL);
@@ -26,6 +27,11 @@ class SystemSpec extends ObjectBehavior
     function it_gives_me_the_unit_name()
     {
         $this->getUnit()->shouldReturn(System::INCHES);
+    }
+
+    function it_gives_me_the_unit_name_when_tostringed()
+    {
+        $this->__toString()->shouldReturn(System::INCHES);
     }
 
     function it_gives_me_a_rendered_string()
