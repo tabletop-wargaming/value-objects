@@ -10,14 +10,21 @@ class System
     const INCHES = 'inches';
     const CM = 'centimetres';
 
+    const INCH_MICRO = 25400; // number of μm in an inch
+
+    const CM_MICRO = 10000; // number of μm in a cm
+
     private $name;
 
     private $unit;
 
-    public function __construct($name, $unit, $format)
+    private $base;
+
+    public function __construct($name, $unit, $base, $format)
     {
         $this->name = $name;
         $this->unit = $unit;
+        $this->base = $base;
         $this->format = $format;
     }
 
@@ -34,5 +41,15 @@ class System
     public function render($distance)
     {
         return vsprintf($this->format, $distance);
+    }
+
+    public function toBase($distance)
+    {
+        return round($distance * $this->base);
+    }
+
+    public function toUnit($distance)
+    {
+        return round($distance / $this->base);
     }
 }
