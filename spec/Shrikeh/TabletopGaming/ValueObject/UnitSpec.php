@@ -14,12 +14,14 @@ class UnitSpec extends ObjectBehavior
     public function let()
     {
         $name = 'Ghulam infantry';
-        $type = new Type('Light Infantry', 'LI');
+        $types = array(
+            'type'           => new Type('Light Infantry', 'LI'),
+            'classification' => new Type('Line Troops'),
+            'instruction'    => new Type('Regular'),
+        );
         $stat = new Stat('BS', 11);
-        $classification = new Classification('Line Troops');
         $stats = array($stat);
-        $instruction = new Instruction(Instruction::REGULAR);
-        $this->beConstructedWith($name, $type, $classification, $instruction, $stats);
+        $this->beConstructedWith($name, $stats, $types = array());
     }
 
     function it_gives_me_a_stat()
@@ -36,18 +38,12 @@ class UnitSpec extends ObjectBehavior
     function it_gives_me_the_type()
     {
         $type = new Type('Light Infantry', 'LI');
-        $this->getType()->shouldBeLike($type);
+        $this->getType('type')->shouldBeLike($type);
     }
 
     function it_gives_me_the_classification()
     {
-        $classification = new Classification('Line Troops');
-        $this->getClassification()->shouldBeLike($classification);
-    }
-
-    function it_gives_me_the_instruction()
-    {
-        $instruction = new Instruction(Instruction::REGULAR);
-        $this->getInstruction()->shouldBeLike($instruction);
+        $classification = new Type('Line Troops');
+        $this->getType('classification')->shouldBeLike($classification);
     }
 }

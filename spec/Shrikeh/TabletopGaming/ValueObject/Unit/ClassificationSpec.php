@@ -5,19 +5,35 @@ namespace spec\Shrikeh\TabletopGaming\ValueObject\Unit;
 use \PhpSpec\ObjectBehavior;
 use \Prophecy\Argument;
 
-class ClassificationSpec extends ObjectBehavior
+class TypeSpec extends ObjectBehavior
 {
-    function it_returns_a_valid_classification()
+    public function let()
     {
-        $classification = 'Line Troops';
-        $this->beConstructedWith($classification);
-        $this->getName()->shouldReturn($classification);
+        $this->beConstructedWith(
+            'classification',
+            'Light Infantry',
+            'LI',
+            'The common backbone of every army. These are fast troops, with limited armour but a good number of Support Weapons.'
+        );
     }
 
-    function it_gives_a_classification_description()
+    function it_gives_me_the_type_name()
     {
-        $desc = 'The most common troops. These form the main body of most armies.';
-        $this->beConstructedWith('Line Troops', $desc);
-        $this->getDescription()->shouldReturn($desc);
+        $this->getName()->shouldReturn('Light Infantry');
+    }
+
+    function it_gives_me_the_id()
+    {
+        $this->getId()->shouldReturn('LI');
+    }
+
+    function it_gives_me_the_type_description()
+    {
+        $this->getDescription()->shouldReturn('The common backbone of every army. These are fast troops, with limited armour but a good number of Support Weapons.');
+    }
+
+    function it_gives_me_the_classification()
+    {
+        $this->getClassification()->shouldReturn('classification');
     }
 }

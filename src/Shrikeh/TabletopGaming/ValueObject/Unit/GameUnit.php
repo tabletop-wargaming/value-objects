@@ -8,9 +8,5 @@ interface GameUnit
 
     public function getStat($statCode);
 
-    public function getType();
-
-    public function getClassification();
-
-    public function getInstruction();
+    public function getClassification($classificationType);
 }

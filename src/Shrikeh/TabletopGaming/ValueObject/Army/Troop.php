@@ -13,18 +13,9 @@ class Troop
         $this->unit = $unit;
     }
 
-    public function getClassification()
+    public function getClassification($classificationType)
     {
-        return $this->unit->getClassification();
+        return $this->unit->getClassification($classificationType);
     }
 
-    public function getType()
-    {
-        return $this->unit->getType();
-    }
-
-    public function getInstruction()
-    {
-        return $this->unit->getInstruction();
-    }
 }

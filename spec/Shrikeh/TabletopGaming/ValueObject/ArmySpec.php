@@ -7,8 +7,10 @@ use Prophecy\Argument;
 
 class ArmySpec extends ObjectBehavior
 {
-    function it_is_initializable()
+    function it_should_give_me_the_name()
     {
-        $this->shouldHaveType('Shrikeh\TabletopGaming\ValueObject\Army');
+        $name = 'Dark Angels';
+        $this->beConstructedWith($name);
+        $this->getName()->shouldReturn($name);
     }
 }

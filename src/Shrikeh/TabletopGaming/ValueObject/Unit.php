@@ -3,34 +3,27 @@
 namespace Shrikeh\TabletopGaming\ValueObject;
 
 use Shrikeh\TabletopGaming\ValueObject\Stat\UnitStat;
-use Shrikeh\TabletopGaming\ValueObject\Unit\Classification;
 use Shrikeh\TabletopGaming\ValueObject\Unit\GameUnit;
-use Shrikeh\TabletopGaming\ValueObject\Unit\Instruction;
-use Shrikeh\TabletopGaming\ValueObject\Unit\Type;
+use Shrikeh\TabletopGaming\ValueObject\Unit\Classification;
 
 class Unit implements GameUnit
 {
     private $name;
 
-    private $type;
-
-    private $classification;
-
-    private $instruction;
+    private $classifications;
 
     private $stats = array();
 
     public function __construct(
         $name,
-        Type $type,
-        Classification $classification,
-        Instruction $instruction,
-        $stats)
-    {
+        $stats,
+        array $classifications = array()
+    ) {
         $this->name = $name;
-        $this->type = $type;
-        $this->instruction = $instruction;
-        $this->classification = $classification;
+
+        foreach ($classifications as $classification) {
+            $this->addClassification($classification);
+        }
 
         foreach($stats as $stat) {
             $this->addStat($stat);
@@ -42,28 +35,23 @@ class Unit implements GameUnit
         return $this->stats[$statCode];
     }
 
-    private function addStat(UnitStat $stat)
-    {
-        $this->stats[$stat->getCode()] = $stat;
-    }
-
     public function getName()
     {
         return $this->name;
     }
 
-    public function getType()
+    public function getClassification($classification)
     {
-        return $this->type;
+        return $this->classifications[$classification];
     }
 
-    public function getClassification()
+    private function addClassification(Classification $classification)
     {
-        return $this->classification;
+        $this->classificationss[$classification->getType()] = $classification;
     }
 
-    public function getInstruction()
+    private function addStat(UnitStat $stat)
     {
-        return $this->instruction;
+        $this->stats[$stat->getCode()] = $stat;
     }
 }
