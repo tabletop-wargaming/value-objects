@@ -1,6 +1,6 @@
 <?php
 
-namespace Shrikeh\TabletopGaming\ValueObject;
+namespace Shrikeh\TabletopWargaming\ValueObject;
 
 class Figure
 {

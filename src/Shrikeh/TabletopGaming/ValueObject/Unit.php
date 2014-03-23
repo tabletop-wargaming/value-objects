@@ -1,10 +1,10 @@
 <?php
 
-namespace Shrikeh\TabletopGaming\ValueObject;
+namespace Shrikeh\TabletopWargaming\ValueObject;
 
-use Shrikeh\TabletopGaming\ValueObject\Stat\UnitStat;
-use Shrikeh\TabletopGaming\ValueObject\Unit\GameUnit;
-use Shrikeh\TabletopGaming\ValueObject\Unit\Classification;
+use Shrikeh\TabletopWargaming\ValueObject\Stat\UnitStat;
+use Shrikeh\TabletopWargaming\ValueObject\Unit\GameUnit;
+use Shrikeh\TabletopWargaming\ValueObject\Unit\Classification\UnitType;
 
 class Unit implements GameUnit
 {
@@ -45,9 +45,9 @@ class Unit implements GameUnit
         return $this->classifications[$classification];
     }
 
-    private function addClassification(Classification $classification)
+    private function addClassification(UnitType $classification)
     {
-        $this->classificationss[$classification->getType()] = $classification;
+        $this->classifications[$classification->getType()] = $classification;
     }
 
     private function addStat(UnitStat $stat)

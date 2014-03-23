@@ -5,9 +5,9 @@
  * Date: 21/03/2014
  * Time: 18:42
  */ 
-namespace Shrikeh\TabletopGaming\ValueObject;
+namespace Shrikeh\TabletopWargaming\ValueObject;
 
-use \Shrikeh\TabletopGaming\ValueObject\Stat\UnitStat;
+use \Shrikeh\TabletopWargaming\ValueObject\Stat\UnitStat;
 
 class Stat implements UnitStat
 {

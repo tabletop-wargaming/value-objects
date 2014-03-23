@@ -15,5 +15,5 @@
     "config": {
         "bin-dir": "bin"
     },
-    "autoload": {"psr-0": {"Shrikeh\\TabletopGaming\\ValueObject": "src"}}
+    "autoload": {"psr-0": {"Shrikeh\\TabletopWargaming\\ValueObject": "src"}}
 }

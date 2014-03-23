@@ -1,9 +1,9 @@
 <?php
 
-namespace spec\Shrikeh\TabletopGaming\ValueObject\Army;
+namespace spec\Shrikeh\TabletopWargaming\ValueObject\Army;
 
-use \Shrikeh\TabletopGaming\ValueObject\Unit;
-use \Shrikeh\TabletopGaming\ValueObject\Unit\Classification;
+use \Shrikeh\TabletopWargaming\ValueObject\Unit;
+use \Shrikeh\TabletopWargaming\ValueObject\Unit\Classification;
 use \PhpSpec\ObjectBehavior;
 use \Prophecy\Argument;
 
@@ -11,7 +11,7 @@ class TroopSpec extends ObjectBehavior
 {
     public function let(Unit $unit)
     {
-        $unit->beADoubleOf('\Shrikeh\TabletopGaming\ValueObject\Unit');
+        $unit->beADoubleOf('\Shrikeh\TabletopWargaming\ValueObject\Unit');
         $this->beConstructedWith($unit);
     }
 

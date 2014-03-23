@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\Shrikeh\TabletopGaming\ValueObject;
+namespace spec\Shrikeh\TabletopWargaming\ValueObject;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
@@ -12,5 +12,10 @@ class ArmySpec extends ObjectBehavior
         $name = 'Dark Angels';
         $this->beConstructedWith($name);
         $this->getName()->shouldReturn($name);
+    }
+
+    function it_should_give_me_its_faction()
+    {
+
     }
 }

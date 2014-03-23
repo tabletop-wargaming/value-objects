@@ -1,13 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: shrikeh
- * Date: 22/03/2014
- * Time: 00:06
- */ 
-namespace Shrikeh\TabletopGaming\ValueObject\Unit;
 
-class Classification
+namespace Shrikeh\TabletopWargaming\ValueObject\Unit;
+
+use Shrikeh\TabletopWargaming\ValueObject\Unit\Classification\UnitType;
+
+class Classification implements UnitType
 {
     private $name;
 
@@ -18,14 +15,14 @@ class Classification
     private $type;
 
     public function __construct(
-        $name,
         $type,
-        $id,
+        $name,
+        $id = null,
         $description = null
     )
     {
-        $this->name = $name;
         $this->type = $type;
+        $this->name = $name;
         $this->id = $id;
         $this->description = $description;
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\Shrikeh\TabletopGaming;
+namespace spec\Shrikeh\TabletopWargaming\ValueObject;
 
 use \PhpSpec\ObjectBehavior;
 use \Prophecy\Argument;

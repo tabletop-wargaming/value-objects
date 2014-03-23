@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\Shrikeh\TabletopGaming;
+namespace spec\Shrikeh\TabletopWargaming\ValueObject;
 
 use \PhpSpec\ObjectBehavior;
 use \Prophecy\Argument;
@@ -9,6 +9,6 @@ class FigureSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType('Shrikeh\TabletopGaming\Figure');
+        $this->shouldHaveType('Shrikeh\TabletopWargaming\ValueObject\Figure');
     }
 }

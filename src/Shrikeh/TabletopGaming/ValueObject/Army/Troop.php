@@ -1,8 +1,8 @@
 <?php
 
-namespace Shrikeh\TabletopGaming\ValueObject\Army;
+namespace Shrikeh\TabletopWargaming\ValueObject\Army;
 
-use \Shrikeh\TabletopGaming\ValueObject\Unit\GameUnit;
+use \Shrikeh\TabletopWargaming\ValueObject\Unit\GameUnit;
 
 class Troop
 {
