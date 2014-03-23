@@ -1,0 +1,19 @@
+{
+    "name": "shrikeh/tabletop-gaming-value-objects",
+    "description": "Value objects common to most tabletop gaming systems",
+    "minimum-stability": "dev",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Barney Hanlon",
+            "email": "barney@shrikeh.net"
+        }
+    ],
+    "require-dev": {
+        "phpspec/phpspec": "2.0.*@dev"
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "autoload": {"psr-0": {"Shrikeh\\TabletopGaming\\ValueObject": "src"}}
+}
