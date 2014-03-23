@@ -2,8 +2,9 @@
 
 namespace spec\TabletopWargaming\ValueObject;
 
-use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
+use \PhpSpec\ObjectBehavior;
+use \Prophecy\Argument;
+use \TabletopWargaming\ValueObject\Faction;
 
 class FactionSpec extends ObjectBehavior
 {
@@ -19,5 +20,18 @@ class FactionSpec extends ObjectBehavior
         $name = 'Covenant of Antartica';
         $this->beConstructedWith('foo', $name);
         $this->getName()->shouldReturn($name);
+    }
+
+    function it_can_have_a_parent_faction(Faction $parentFaction)
+    {
+        $this->beConstructedWith('foo', 'bar', array(), $parentFaction);
+        $this->getParent()->shouldReturn($parentFaction);
+    }
+
+    function it_can_have_child_factions(Faction $child1, Faction $child2)
+    {
+        $factions = array($child1, $child2);
+        $this->beConstructedWith('foo', 'bar',  $factions, null);
+        $this->getChildren()->shouldReturn($factions);
     }
 }

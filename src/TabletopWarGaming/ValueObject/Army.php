@@ -2,7 +2,7 @@
 
 namespace TabletopWargaming\ValueObject;
 
-use TabletopWargaming\ValueObject\Faction;
+use TabletopWargaming\ValueObject\Faction\GameCoalition;
 
 class Army
 {
@@ -10,7 +10,7 @@ class Army
 
     private $faction;
 
-    public function __construct($name, Faction $faction)
+    public function __construct($name, GameCoalition $faction)
     {
         $this->name = $name;
         $this->faction = $faction;
