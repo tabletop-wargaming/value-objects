@@ -22,4 +22,6 @@ class TroopSpec extends ObjectBehavior
         $unit->getClassification('type')->willReturn($type);
         $this->getClassification('type')->shouldReturn($type);
     }
+
+
 }
