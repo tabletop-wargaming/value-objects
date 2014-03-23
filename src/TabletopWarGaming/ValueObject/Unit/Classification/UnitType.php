@@ -1,5 +1,5 @@
 <?php
-namespace Shrikeh\TabletopWargaming\ValueObject\Unit\Classification;
+namespace TabletopWargaming\ValueObject\Unit\Classification;
 
 interface UnitType
 {

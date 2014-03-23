@@ -1,6 +1,6 @@
 <?php
 
-namespace Shrikeh\TabletopWargaming\ValueObject\Unit;
+namespace TabletopWargaming\ValueObject\Unit;
 
 interface GameUnit
 {

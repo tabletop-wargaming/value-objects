@@ -1,5 +1,5 @@
 {
-    "name": "shrikeh/tabletop-gaming-value-objects",
+    "name": "tabletop-wargaming/value-objects",
     "description": "Value objects common to most tabletop gaming systems",
     "minimum-stability": "dev",
     "license": "MIT",
@@ -15,5 +15,5 @@
     "config": {
         "bin-dir": "bin"
     },
-    "autoload": {"psr-0": {"Shrikeh\\TabletopWargaming\\ValueObject": "src"}}
+    "autoload": {"psr-0": {"TabletopWargaming\\ValueObject": "src"}}
 }

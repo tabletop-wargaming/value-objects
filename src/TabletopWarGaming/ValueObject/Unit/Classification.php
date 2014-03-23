@@ -1,8 +1,8 @@
 <?php
 
-namespace Shrikeh\TabletopWargaming\ValueObject\Unit;
+namespace TabletopWargaming\ValueObject\Unit;
 
-use Shrikeh\TabletopWargaming\ValueObject\Unit\Classification\UnitType;
+use TabletopWargaming\ValueObject\Unit\Classification\UnitType;
 
 class Classification implements UnitType
 {

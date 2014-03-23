@@ -1,9 +1,9 @@
 <?php
 
-namespace spec\Shrikeh\TabletopWargaming\ValueObject;
+namespace spec\TabletopWargaming\ValueObject;
 
-use \Shrikeh\TabletopWargaming\ValueObject\Stat;
-use \Shrikeh\TabletopWargaming\ValueObject\Unit\Classification;
+use \TabletopWargaming\ValueObject\Stat;
+use \TabletopWargaming\ValueObject\Unit\Classification;
 use \PhpSpec\ObjectBehavior;
 use \Prophecy\Argument;
 

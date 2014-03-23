@@ -1,10 +1,10 @@
 <?php
 
-namespace Shrikeh\TabletopWargaming\ValueObject;
+namespace TabletopWargaming\ValueObject;
 
-use Shrikeh\TabletopWargaming\ValueObject\Stat\UnitStat;
-use Shrikeh\TabletopWargaming\ValueObject\Unit\GameUnit;
-use Shrikeh\TabletopWargaming\ValueObject\Unit\Classification\UnitType;
+use TabletopWargaming\ValueObject\Stat\UnitStat;
+use TabletopWargaming\ValueObject\Unit\GameUnit;
+use TabletopWargaming\ValueObject\Unit\Classification\UnitType;
 
 class Unit implements GameUnit
 {

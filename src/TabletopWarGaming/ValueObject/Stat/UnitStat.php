@@ -5,7 +5,7 @@
  * Date: 21/03/2014
  * Time: 18:41
  */ 
-namespace Shrikeh\TabletopWargaming\ValueObject\Stat;
+namespace TabletopWargaming\ValueObject\Stat;
 
 interface UnitStat
 {
