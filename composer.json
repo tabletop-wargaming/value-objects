@@ -3,6 +3,8 @@
     "description": "Value objects common to most tabletop gaming systems",
     "minimum-stability": "dev",
     "license": "MIT",
+    "homepage":     "https://github.com/tabletop-wargaming/value-objects",
+    "type":         "library",
     "authors": [
         {
             "name": "Barney Hanlon",
