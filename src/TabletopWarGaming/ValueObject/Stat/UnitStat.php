@@ -9,7 +9,7 @@ namespace TabletopWargaming\ValueObject\Stat;
 
 interface UnitStat
 {
-    public function getCode();
+    public function getAttributeId();
 
     public function getValue();
 }

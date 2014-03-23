@@ -2,6 +2,7 @@
 
 namespace spec\TabletopWargaming\ValueObject;
 
+use TabletopWargaming\ValueObject\Attribute;
 use \TabletopWargaming\ValueObject\Stat;
 use \TabletopWargaming\ValueObject\Unit\Classification;
 use \PhpSpec\ObjectBehavior;
@@ -9,7 +10,7 @@ use \Prophecy\Argument;
 
 class UnitSpec extends ObjectBehavior
 {
-    public function let()
+    public function let($attribute, $stat)
     {
         $name = 'Ghulam infantry';
         $types = array(
@@ -17,14 +18,16 @@ class UnitSpec extends ObjectBehavior
             new Classification('classification', 'Line Troops'),
             new Classification('instruction', 'Regular'),
         );
-        $stat = new Stat('BS', 11);
+        $attribute = new Attribute('BS', 'Ballistic Skill');
+        $stat = new Stat($attribute, 11);
         $stats = array($stat);
         $this->beConstructedWith($name, $stats, $types);
     }
 
-    function it_gives_me_a_stat()
+    function it_gives_me_a_stat(Stat $stat)
     {
-        $stat = new Stat('BS', 11);
+        $attribute = new Attribute('BS', 'Ballistic Skill');
+        $stat = new Stat($attribute, 11);
         $this->getStat('BS')->shouldBeLike($stat);
     }
 

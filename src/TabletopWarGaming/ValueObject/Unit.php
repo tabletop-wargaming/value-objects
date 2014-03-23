@@ -52,6 +52,6 @@ class Unit implements GameUnit
 
     private function addStat(UnitStat $stat)
     {
-        $this->stats[$stat->getCode()] = $stat;
+        $this->stats[$stat->getAttributeId()] = $stat;
     }
 }

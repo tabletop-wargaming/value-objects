@@ -7,23 +7,29 @@
  */ 
 namespace TabletopWargaming\ValueObject;
 
+use \TabletopWargaming\ValueObject\Attribute;
 use \TabletopWargaming\ValueObject\Stat\UnitStat;
 
 class Stat implements UnitStat
 {
-    private $code;
+    private $attribute;
 
     private $value;
 
-    public function __construct($code, $value)
+    public function __construct(Attribute $attribute, $value)
     {
-        $this->code = $code;
+        $this->attribute = $attribute;
         $this->value = $value;
     }
 
-    public function getCode()
+    public function getAttributeId()
     {
-        return $this->code;
+        return $this->getAttribute()->getId();
+    }
+
+    public function getAttribute()
+    {
+        return $this->attribute;
     }
 
     public function getValue()
