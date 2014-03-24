@@ -1,6 +1,11 @@
 language: php
 
-php: [5.4, 5.5, hhvm]
+php:
+ - 5.4
+ - 5.5
+ - hhvm
+allow_failures:
+ - hvm
 
 before_script:
   - composer selfupdate
