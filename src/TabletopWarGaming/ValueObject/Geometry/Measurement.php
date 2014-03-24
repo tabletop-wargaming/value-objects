@@ -35,7 +35,7 @@ class Measurement
 
     public function toBase()
     {
-        return $this->system->toBase($this->distance);
+        return ($this->isInfinite()) ? INF: $this->system->toBase($this->distance);
     }
 
     public function isInfinite()

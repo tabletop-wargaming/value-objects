@@ -11,6 +11,9 @@
             "email":    "barney@shrikeh.net"
         }
     ],
+    "require": {
+        "php":                          ">=5.4"
+    },
     "require-dev": {
         "phpspec/phpspec":              "2.0.*@dev",
         "phploc/phploc":                ">=1.7.4",
@@ -24,5 +27,5 @@
     "config": {
         "bin-dir": "bin"
     },
-    "autoload": {"psr-0": {"TabletopWargaming\\ValueObject": "src"}}
+    "autoload": {"psr-0": {"TabletopWargaming\\ValueObject": "src/"}}
 }
