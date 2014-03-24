@@ -22,9 +22,15 @@ class MeasurementSpec extends ObjectBehavior
         $distance = 24;
         $this->beConstructedWith($distance, $system);
         $this->getSystem()->shouldReturn($system);
+        $this->isInfinite()->shouldReturn(false);
     }
 
-
+    function it_can_be_infinite()
+    {
+        $inches = new System(System::IMPERIAL, System::INCHES, System::INCH_MICRO, '%d"');
+        $this->beConstructedWith(INF, $inches);
+        $this->isInfinite()->shouldReturn(true);
+    }
 
     function it_immutably_can_be_converted()
     {
@@ -33,7 +39,6 @@ class MeasurementSpec extends ObjectBehavior
         $metric = new System(System::IMPERIAL, System::METRIC, System::CM_MICRO, '%dcm');
         $metricMeasurement = new Measurement(121.92, $metric);
         $this->beConstructedWith(48, $inches);
-
         $this->convertTo($metric)->shouldMatchDistance($metricMeasurement);
     }
 

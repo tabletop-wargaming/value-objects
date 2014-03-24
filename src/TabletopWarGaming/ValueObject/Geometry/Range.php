@@ -28,4 +28,19 @@ class Range
     {
         return $this->end;
     }
+
+    public function isInfinite()
+    {
+        return (INF === $this->getEnd()->toBase());
+    }
+
+    public function in(Measurement $measurement)
+    {
+        $distance = $measurement->toBase();
+        if ($distance >= $this->getStart()->toBase()) {
+            if ($distance < $this->getEnd()->toBase() ) {
+                return $this;
+            }
+        }
+    }
 }

@@ -35,4 +35,43 @@ class RangeSpec extends ObjectBehavior
         $end->toBase()->willReturn(19);
         $this->shouldThrow('\LengthException')->during('__construct', array($start, $end));
     }
+
+    function it_should_return_itself_if_it_is_in_range(
+        Measurement $start,
+        Measurement $end,
+        Measurement $in
+    )
+    {
+        $start->toBase()->willReturn(0);
+        $end->toBase()->willReturn(3000);
+        $in->toBase()->willReturn(0);
+        $this->beConstructedWith($start, $end);
+        $this->in($in)->shouldReturn($this->getWrappedObject());
+    }
+
+    function it_should_return_null_if_out_of_range(
+        Measurement $start,
+        Measurement $end,
+        Measurement $in
+    )
+    {
+        $start->toBase()->willReturn(0);
+        $end->toBase()->willReturn(3000);
+        $in->toBase()->willReturn(3001);
+        $this->beConstructedWith($start, $end);
+        $this->in($in)->shouldReturn(null);
+    }
+
+    function it_can_be_infinite(
+        Measurement $start,
+        Measurement $end,
+        Measurement $in
+    ) {
+        $start->toBase()->willReturn(100);
+        $end->isInfinite()->willReturn(true);
+        $end->toBase()->willReturn(INF);
+        $in->toBase()->willReturn(3001);
+        $this->beConstructedWith($start, $end);
+        $this->in($in)->shouldReturn($this->getWrappedObject());
+    }
 }
