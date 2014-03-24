@@ -52,4 +52,9 @@ class Measurement
     {
         return ($this->toBase() < $measurement->toBase());
     }
+
+    public function isEqualTo(Measurement $measurement)
+    {
+        return ($this->toBase() === $measurement->toBase());
+    }
 }

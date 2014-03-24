@@ -32,6 +32,7 @@ class MeasurementSpec extends ObjectBehavior
         $that = new Measurement(47, $inches);
         $this->isGreaterThan($that)->shouldReturn(true);
         $this->isLessThan($that)->shouldReturn(false);
+        $this->isEqualTo($that)->shouldReturn(false);
     }
 
     function it_says_whether_it_is_less_than_another_measurement()
@@ -41,7 +42,18 @@ class MeasurementSpec extends ObjectBehavior
         $that = new Measurement(49, $inches);
         $this->isLessThan($that)->shouldReturn(true);
         $this->isGreaterThan($that)->shouldReturn(false);
+        $this->isEqualTo($that)->shouldReturn(false);
 
+    }
+
+    function it_says_whether_it_is_equal_to_another_measurement()
+    {
+        $inches = new System(System::IMPERIAL, System::INCHES, System::INCH_MICRO, '%d"');
+        $this->beConstructedWith(48, $inches);
+        $that = new Measurement(48, $inches);
+        $this->isLessThan($that)->shouldReturn(false);
+        $this->isGreaterThan($that)->shouldReturn(false);
+        $this->isEqualTo($that)->shouldReturn(true);
     }
 
     function it_can_be_infinite()
