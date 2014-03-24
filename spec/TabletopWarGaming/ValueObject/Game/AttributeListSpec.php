@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\TabletopWarGaming\ValueObject\Game;
+namespace spec\TabletopWargaming\ValueObject\Game;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
