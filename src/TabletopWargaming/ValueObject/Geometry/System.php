@@ -20,12 +20,14 @@ class System
 
     private $base;
 
+    private $format;
+
     public function __construct($name, $unit, $base, $format)
     {
-        $this->name = $name;
-        $this->unit = $unit;
-        $this->base = $base;
-        $this->format = $format;
+        $this->name     = $name;
+        $this->unit     = $unit;
+        $this->base     = $base;
+        $this->format   = $format;
     }
 
     public function __toString()
