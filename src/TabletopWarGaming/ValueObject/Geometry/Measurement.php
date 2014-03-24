@@ -10,10 +10,10 @@ class Measurement
 
     private $distance;
 
-    public function __construct(System $system, $distance)
+    public function __construct($distance, System $system)
     {
-        $this->system = $system;
         $this->distance = $distance;
+        $this->system = $system;
     }
 
     public function getSystem()
@@ -24,5 +24,17 @@ class Measurement
     public function getDistance()
     {
         return $this->distance;
+    }
+
+    public function convertTo(System $system)
+    {
+        $distance = $this->system->toBase($this->distance);
+        $unit = $system->toUnit($distance);
+        return new self($unit, $system);
+    }
+
+    public function toBase()
+    {
+        return $this->system->toBase($this->distance);
     }
 }

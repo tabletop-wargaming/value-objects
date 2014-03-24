@@ -4,11 +4,11 @@ namespace TabletopWargaming\ValueObject\Geometry;
 
 class System
 {
-    const IMPERIAL = 'Imperial';
-    const METRIC = 'Metric';
+    const IMPERIAL  = 'Imperial';
+    const METRIC    = 'Metric';
 
-    const INCHES = 'inches';
-    const CM = 'centimetres';
+    const INCHES    = 'inches';
+    const CM        = 'centimetres';
 
     const INCH_MICRO = 25400; // number of μm in an inch
 
@@ -50,11 +50,11 @@ class System
 
     public function toBase($distance)
     {
-        return round($distance * $this->base);
+        return (double) $distance * $this->base;
     }
 
     public function toUnit($distance)
     {
-        return round($distance / $this->base);
+        return (double) $distance / $this->base;
     }
 }
