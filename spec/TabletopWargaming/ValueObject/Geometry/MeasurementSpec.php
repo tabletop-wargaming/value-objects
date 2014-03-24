@@ -78,6 +78,7 @@ class MeasurementSpec extends ObjectBehavior
         $this->isEqualTo($that)->shouldReturn(true);
     }
 
+
     function it_can_compare_with_another_object()
     {
         $inches = new System(System::IMPERIAL, System::INCHES, System::INCH_MICRO, '%d"');
