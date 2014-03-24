@@ -1,6 +1,6 @@
 <?php
 
-namespace TabletopWargaming\ValueObject\Geometry;
+namespace TabletopWargaming\ValueObject\Geometry\Measurement;
 
 class System
 {

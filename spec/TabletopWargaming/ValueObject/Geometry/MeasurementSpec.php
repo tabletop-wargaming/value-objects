@@ -5,7 +5,7 @@ namespace spec\TabletopWargaming\ValueObject\Geometry;
 use \PhpSpec\ObjectBehavior;
 use \Prophecy\Argument;
 use TabletopWargaming\ValueObject\Geometry\Measurement;
-use \TabletopWargaming\ValueObject\Geometry\System;
+use \TabletopWargaming\ValueObject\Geometry\Measurement\System;
 
 
 class MeasurementSpec extends ObjectBehavior
@@ -23,6 +23,25 @@ class MeasurementSpec extends ObjectBehavior
         $this->beConstructedWith($distance, $system);
         $this->getSystem()->shouldReturn($system);
         $this->isInfinite()->shouldReturn(false);
+    }
+
+    function it_says_whether_it_is_greater_than_another_measurement()
+    {
+        $inches = new System(System::IMPERIAL, System::INCHES, System::INCH_MICRO, '%d"');
+        $this->beConstructedWith(48, $inches);
+        $that = new Measurement(47, $inches);
+        $this->isGreaterThan($that)->shouldReturn(true);
+        $this->isLessThan($that)->shouldReturn(false);
+    }
+
+    function it_says_whether_it_is_less_than_another_measurement()
+    {
+        $inches = new System(System::IMPERIAL, System::INCHES, System::INCH_MICRO, '%d"');
+        $this->beConstructedWith(48, $inches);
+        $that = new Measurement(49, $inches);
+        $this->isLessThan($that)->shouldReturn(true);
+        $this->isGreaterThan($that)->shouldReturn(false);
+
     }
 
     function it_can_be_infinite()

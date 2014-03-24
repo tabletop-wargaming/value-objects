@@ -1,10 +1,10 @@
 <?php
 
-namespace spec\TabletopWargaming\ValueObject\Geometry;
+namespace spec\TabletopWargaming\ValueObject\Geometry\Measurement;
 
 use \PhpSpec\ObjectBehavior;
 use \Prophecy\Argument;
-use \TabletopWargaming\ValueObject\Geometry\System;
+use \TabletopWargaming\ValueObject\Geometry\Measurement\System;
 
 class SystemSpec extends ObjectBehavior
 {
@@ -17,7 +17,6 @@ class SystemSpec extends ObjectBehavior
             '%d"'
         );
     }
-
 
     function it_gives_me_the_system_name()
     {

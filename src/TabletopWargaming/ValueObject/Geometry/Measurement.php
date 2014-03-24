@@ -2,7 +2,7 @@
 
 namespace TabletopWargaming\ValueObject\Geometry;
 
-use \TabletopWargaming\ValueObject\Geometry\System;
+use \TabletopWargaming\ValueObject\Geometry\Measurement\System;
 
 class Measurement
 {
@@ -41,5 +41,15 @@ class Measurement
     public function isInfinite()
     {
         return (INF == $this->distance);
+    }
+
+    public function isGreaterThan(Measurement $measurement)
+    {
+        return ($this->toBase() > $measurement->toBase());
+    }
+
+    public function isLessThan(Measurement $measurement)
+    {
+        return ($this->toBase() < $measurement->toBase());
     }
 }
