@@ -3,8 +3,9 @@
 namespace TabletopWargaming\ValueObject\Geometry;
 
 use \TabletopWargaming\ValueObject\Geometry\Measurement;
+use \TabletopWargaming\ValueObject\Geometry\RangeRuler;
 
-class Range
+class Range implements RangeRuler
 {
     private $start;
 
@@ -37,7 +38,7 @@ class Range
     public function in(Measurement $measurement)
     {
         $start = $this->getStart();
-        if (($start->isEqualTo($measurement)) || ($start->isGreaterThan($measurement))) {
+        if ($measurement->isGreaterThan($start) || $measurement->isEqualTo($start)) {
             if ($this->getEnd()->isLessThan($measurement) ) {
                 return $this;
             }
