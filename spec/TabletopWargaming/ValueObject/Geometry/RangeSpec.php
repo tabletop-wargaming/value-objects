@@ -31,8 +31,7 @@ class RangeSpec extends ObjectBehavior
         Measurement $end
     )
     {
-        $start->toBase()->willReturn(20);
-        $end->toBase()->willReturn(19);
+        $start->isGreaterThan($end)->willReturn(true);
         $this->shouldThrow('\LengthException')->during('__construct', array($start, $end));
     }
 
@@ -42,9 +41,10 @@ class RangeSpec extends ObjectBehavior
         Measurement $in
     )
     {
-        $start->toBase()->willReturn(0);
-        $end->toBase()->willReturn(3000);
-        $in->toBase()->willReturn(0);
+        $start->isGreaterThan($end)->willReturn(false);
+        $start->isEqualTo($in)->willReturn(true);
+        $end->isLessThan($in)->willReturn(true);
+
         $this->beConstructedWith($start, $end);
         $this->in($in)->shouldReturn($this->getWrappedObject());
     }
@@ -55,9 +55,11 @@ class RangeSpec extends ObjectBehavior
         Measurement $in
     )
     {
-        $start->toBase()->willReturn(0);
-        $end->toBase()->willReturn(3000);
-        $in->toBase()->willReturn(3001);
+        $start->isGreaterThan($end)->willReturn(false);
+        $start->isEqualTo($in)->willReturn(false);
+        $start->isGreaterThan($in)->willReturn(false);
+        $end->isLessThan($in)->willReturn(false);
+;
         $this->beConstructedWith($start, $end);
         $this->in($in)->shouldReturn(null);
     }
@@ -67,10 +69,11 @@ class RangeSpec extends ObjectBehavior
         Measurement $end,
         Measurement $in
     ) {
-        $start->toBase()->willReturn(100);
+        $start->isGreaterThan($end)->willReturn(false);
+        $start->isEqualTo($in)->willReturn(false);
+        $start->isGreaterThan($in)->willReturn(false);
         $end->isInfinite()->willReturn(true);
-        $end->toBase()->willReturn(INF);
-        $in->toBase()->willReturn(3001);
+        $end->isGreaterThan($in)->willReturn(true);
         $this->beConstructedWith($start, $end);
         $this->in($in)->shouldReturn($this->getWrappedObject());
     }

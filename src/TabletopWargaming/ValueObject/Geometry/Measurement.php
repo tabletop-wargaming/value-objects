@@ -6,6 +6,12 @@ use \TabletopWargaming\ValueObject\Geometry\Measurement\System;
 
 class Measurement
 {
+    const EQUAL_TO = 0;
+
+    const GREATER_THAN = 1;
+
+    const LESS_THAN = -1;
+
     private $system;
 
     private $distance;
@@ -45,16 +51,31 @@ class Measurement
 
     public function isGreaterThan(Measurement $measurement)
     {
-        return ($this->toBase() > $measurement->toBase());
+        return ($this->compare($measurement) === self::GREATER_THAN);
     }
 
     public function isLessThan(Measurement $measurement)
     {
-        return ($this->toBase() < $measurement->toBase());
+        return ($this->compare($measurement) === self::LESS_THAN);
     }
 
     public function isEqualTo(Measurement $measurement)
     {
-        return ($this->toBase() === $measurement->toBase());
+        return ($this->compare($measurement) === self::EQUAL_TO);
+    }
+
+    public function diff(Measurement $measurement)
+    {
+        return (int) ($this->toBase() - $measurement->toBase());
+    }
+
+    public function compare(Measurement $measurement)
+    {
+        $diff = $this->diff($measurement);
+
+        if ($diff) {
+            $diff = ($diff > 0) ? self::GREATER_THAN  : self::LESS_THAN;
+        }
+        return $diff;
     }
 }

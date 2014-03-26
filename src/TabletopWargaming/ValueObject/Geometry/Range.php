@@ -12,7 +12,7 @@ class Range
 
     public function __construct(Measurement $start, Measurement $end)
     {
-        if ($start->toBase() > $end->toBase()) {
+        if ($start->isGreaterThan($end)) {
             throw new \LengthException('Start of the range cannot be larger than the end');
         }
         $this->start = $start;
@@ -36,9 +36,9 @@ class Range
 
     public function in(Measurement $measurement)
     {
-        $distance = $measurement->toBase();
-        if ($distance >= $this->getStart()->toBase()) {
-            if ($distance < $this->getEnd()->toBase() ) {
+        $start = $this->getStart();
+        if (($start->isEqualTo($measurement)) || ($start->isGreaterThan($measurement))) {
+            if ($this->getEnd()->isLessThan($measurement) ) {
                 return $this;
             }
         }

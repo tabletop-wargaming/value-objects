@@ -56,6 +56,18 @@ class MeasurementSpec extends ObjectBehavior
         $this->isEqualTo($that)->shouldReturn(true);
     }
 
+    function it_can_compare_with_another_object()
+    {
+        $inches = new System(System::IMPERIAL, System::INCHES, System::INCH_MICRO, '%d"');
+        $this->beConstructedWith(48, $inches);
+        $that = new Measurement(48.1, $inches);
+        $this->compare($that)->shouldReturn(-1);
+        $that = new Measurement(48, $inches);
+        $this->compare($that)->shouldReturn(0);
+        $that = new Measurement(47.99, $inches);
+        $this->compare($that)->shouldReturn(1);
+    }
+
     function it_can_be_infinite()
     {
         $inches = new System(System::IMPERIAL, System::INCHES, System::INCH_MICRO, '%d"');
