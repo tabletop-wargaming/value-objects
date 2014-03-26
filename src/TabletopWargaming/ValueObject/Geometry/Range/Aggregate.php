@@ -2,7 +2,8 @@
 
 namespace TabletopWargaming\ValueObject\Geometry\Range;
 
-use TabletopWargaming\ValueObject\Geometry\RangeRuler;
+use \TabletopWargaming\ValueObject\Geometry\Range;
+use \TabletopWargaming\ValueObject\Geometry\Measurement;
 
 class Aggregate
 {
@@ -20,10 +21,16 @@ class Aggregate
         return $this->ranges[0]->getStart();
     }
 
-    private function addRange(RangeRuler $range)
+    private function addRange(Range $range)
     {
+        $start = $range->getStart();
+        $end = $range->getEnd();
+        foreach ($this->ranges as $band) {
+            if ( ($band->in($start)) || ($band->in($end)) ) {
+                throw new \OutOfBoundsException('Ranges cannot overlap');
+            }
+        }
         $this->ranges[] = $range;
-        ksort($this->ranges);
     }
 
     public function getEnd()
@@ -31,8 +38,12 @@ class Aggregate
         return $this->ranges[0]->getEnd();
     }
 
-    public function in($argument1)
+    public function in(Measurement $measurement)
     {
-        // TODO: write logic here
+        foreach ($this->ranges as $range) {
+            if ($range->in($measurement)) {
+                return $range;
+            }
+        }
     }
 }

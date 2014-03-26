@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\TabletopWargaming\ValueObject\Geometry;
+namespace spec\TabletopWargaming\ValueObject\Geometry\Range;
 
 use \PhpSpec\ObjectBehavior;
 use \Prophecy\Argument;
