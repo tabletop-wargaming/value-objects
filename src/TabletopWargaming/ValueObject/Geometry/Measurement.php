@@ -12,14 +12,19 @@ class Measurement
 
     const LESS_THAN = -1;
 
+    const DELTA = 0.00001;
+
     private $system;
 
     private $distance;
 
-    public function __construct($distance, System $system)
+    private $delta;
+
+    public function __construct($distance, System $system, $delta = self::DELTA)
     {
         $this->distance = $distance;
         $this->system = $system;
+        $this->delta = (double) $delta;
     }
 
     public function getSystem()
@@ -64,18 +69,8 @@ class Measurement
         return ($this->compare($measurement) === self::EQUAL_TO);
     }
 
-    public function diff(Measurement $measurement)
-    {
-        return (int) ($this->toBase() - $measurement->toBase());
-    }
-
     public function compare(Measurement $measurement)
     {
-        $diff = $this->diff($measurement);
-
-        if ($diff) {
-            $diff = ($diff > 0) ? self::GREATER_THAN  : self::LESS_THAN;
-        }
-        return $diff;
+        return bccomp($this->toBase(), $measurement->toBase());
     }
 }

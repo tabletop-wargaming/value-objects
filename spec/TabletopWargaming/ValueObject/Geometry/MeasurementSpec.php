@@ -89,7 +89,7 @@ class MeasurementSpec extends ObjectBehavior
     {
         return [
           'matchDistance' => function($measurement1, $measurement2) {
-              return ($measurement1->toBase() == $measurement2->toBase());
+              return bccomp($measurement1->toBase(), $measurement2->toBase());
           }
         ];
     }

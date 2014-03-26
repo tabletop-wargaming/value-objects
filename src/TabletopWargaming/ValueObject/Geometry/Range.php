@@ -32,13 +32,14 @@ class Range implements RangeRuler
 
     public function isInfinite()
     {
-        return (INF === $this->getEnd()->toBase());
+        return $this->getEnd()->isInfinite();
     }
 
     public function in(Measurement $measurement)
     {
         $start = $this->getStart();
-        if ($measurement->isGreaterThan($start) || $measurement->isEqualTo($start)) {
+
+        if ( ($measurement->isEqualTo($start)) || ($measurement->isGreaterThan($start)) ) {
             if ($this->getEnd()->isLessThan($measurement) ) {
                 return $this;
             }

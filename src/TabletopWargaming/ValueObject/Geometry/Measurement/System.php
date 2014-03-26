@@ -52,11 +52,11 @@ class System
 
     public function toBase($distance)
     {
-        return (double) $distance * $this->base;
+        return (double) bcmul($distance, $this->base);
     }
 
     public function toUnit($distance)
     {
-        return (double) $distance / $this->base;
+        return (double) bcdiv($distance, $this->base);
     }
 }

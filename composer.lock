@@ -548,12 +548,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "98b2d0ba0a9a8f6d0e3b8fda31ce0fb227208fbd"
+                "reference": "4cf49e5496857532f4ca4bbb69d1eee591b88234"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/98b2d0ba0a9a8f6d0e3b8fda31ce0fb227208fbd",
-                "reference": "98b2d0ba0a9a8f6d0e3b8fda31ce0fb227208fbd",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/4cf49e5496857532f4ca4bbb69d1eee591b88234",
+                "reference": "4cf49e5496857532f4ca4bbb69d1eee591b88234",
                 "shasum": ""
             },
             "require": {
@@ -608,7 +608,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2014-03-24 11:36:34"
+            "time": "2014-03-26 11:12:35"
         },
         {
             "name": "nikic/php-parser",
@@ -861,12 +861,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/phpDocumentor2.git",
-                "reference": "29dd4adc713fe2c915a4b0439b4877e29ef53800"
+                "reference": "77587827dd131440580f532fc0ba17ce3b00314f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/phpDocumentor2/zipball/29dd4adc713fe2c915a4b0439b4877e29ef53800",
-                "reference": "29dd4adc713fe2c915a4b0439b4877e29ef53800",
+                "url": "https://api.github.com/repos/phpDocumentor/phpDocumentor2/zipball/77587827dd131440580f532fc0ba17ce3b00314f",
+                "reference": "77587827dd131440580f532fc0ba17ce3b00314f",
                 "shasum": ""
             },
             "require": {
@@ -947,7 +947,7 @@
                 "documentation",
                 "phpdoc"
             ],
-            "time": "2014-03-21 06:48:15"
+            "time": "2014-03-25 21:24:33"
         },
         {
             "name": "phpdocumentor/reflection",
@@ -2106,12 +2106,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Config.git",
-                "reference": "7678c61416966017feb83f2e0b648aa74d359343"
+                "reference": "fed7f04d8e6f51d3e66b5e29aac399d2f2139b94"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Config/zipball/7678c61416966017feb83f2e0b648aa74d359343",
-                "reference": "7678c61416966017feb83f2e0b648aa74d359343",
+                "url": "https://api.github.com/repos/symfony/Config/zipball/fed7f04d8e6f51d3e66b5e29aac399d2f2139b94",
+                "reference": "fed7f04d8e6f51d3e66b5e29aac399d2f2139b94",
                 "shasum": ""
             },
             "require": {
@@ -2147,7 +2147,7 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "http://symfony.com",
-            "time": "2014-03-03 12:53:01"
+            "time": "2014-03-26 11:51:10"
         },
         {
             "name": "symfony/console",
@@ -2271,12 +2271,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Filesystem.git",
-                "reference": "e81f1b30eb9748c3f8e0de3a92ea210845cff0a9"
+                "reference": "fe66eed49c7bbfc312978ef0f86e490127a345b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Filesystem/zipball/e81f1b30eb9748c3f8e0de3a92ea210845cff0a9",
-                "reference": "e81f1b30eb9748c3f8e0de3a92ea210845cff0a9",
+                "url": "https://api.github.com/repos/symfony/Filesystem/zipball/fe66eed49c7bbfc312978ef0f86e490127a345b2",
+                "reference": "fe66eed49c7bbfc312978ef0f86e490127a345b2",
                 "shasum": ""
             },
             "require": {
@@ -2311,7 +2311,7 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "http://symfony.com",
-            "time": "2014-01-07 13:29:57"
+            "time": "2014-03-26 12:01:00"
         },
         {
             "name": "symfony/finder",
@@ -2369,12 +2369,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Process.git",
-                "reference": "9f34844416dc60a16e3aef6bececcb5a6d9713a5"
+                "reference": "1b6f4fc4e4338033cea4ff0051f2b99a28a30134"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Process/zipball/9f34844416dc60a16e3aef6bececcb5a6d9713a5",
-                "reference": "9f34844416dc60a16e3aef6bececcb5a6d9713a5",
+                "url": "https://api.github.com/repos/symfony/Process/zipball/1b6f4fc4e4338033cea4ff0051f2b99a28a30134",
+                "reference": "1b6f4fc4e4338033cea4ff0051f2b99a28a30134",
                 "shasum": ""
             },
             "require": {
@@ -2409,7 +2409,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "http://symfony.com",
-            "time": "2014-03-14 18:46:29"
+            "time": "2014-03-26 11:51:10"
         },
         {
             "name": "symfony/property-access",
@@ -2584,12 +2584,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Validator.git",
-                "reference": "e26028da2416ea03227ec1dd8953459d8dddf0ab"
+                "reference": "3b52f4b185f1674bb9def98d2f55d830e942d2f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Validator/zipball/e26028da2416ea03227ec1dd8953459d8dddf0ab",
-                "reference": "e26028da2416ea03227ec1dd8953459d8dddf0ab",
+                "url": "https://api.github.com/repos/symfony/Validator/zipball/3b52f4b185f1674bb9def98d2f55d830e942d2f0",
+                "reference": "3b52f4b185f1674bb9def98d2f55d830e942d2f0",
                 "shasum": ""
             },
             "require": {
@@ -2642,7 +2642,7 @@
             ],
             "description": "Symfony Validator Component",
             "homepage": "http://symfony.com",
-            "time": "2014-03-19 09:45:16"
+            "time": "2014-03-26 18:07:49"
         },
         {
             "name": "symfony/yaml",
