@@ -35,6 +35,13 @@ class Simple implements Range
         return $this->getEnd()->isInfinite();
     }
 
+    public function overlap(Range $range)
+    {
+        $start = $this->getStart();
+        $end = $this->getEnd();
+        return (($range->in($start)) || ($range->in($end)));
+    }
+
     public function in(Measurement $measurement)
     {
         $start = $this->getStart();

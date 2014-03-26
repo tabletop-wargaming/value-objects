@@ -10,4 +10,6 @@ interface Range
     public function isInfinite();
 
     public function in(Measurement $measurement);
+
+    public function overlap(Range $range);
 }

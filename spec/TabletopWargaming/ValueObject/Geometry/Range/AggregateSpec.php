@@ -34,12 +34,9 @@ class AggregateSpec extends ObjectBehavior
        Measurement $in
     )
     {
-        $first->getStart()->willReturn($m);
-        $first->getEnd()->willReturn($m);
-        $first->in($m)->willReturn(null);
-        $second->getStart()->willReturn($m);
-        $second->getEnd()->willReturn($m);
-        $second->in($m)->willReturn(null);
+        $first->overlap($second)->willReturn(false);
+        $first->overlap($third)->willReturn(false);
+        $second->overlap($third)->willReturn(false);
 
         $first->in($in)->willReturn(null);
         $second->in($in)->willReturn($second);

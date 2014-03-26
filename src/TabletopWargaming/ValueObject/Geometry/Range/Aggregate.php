@@ -23,10 +23,8 @@ class Aggregate
 
     private function addRange(Range $range)
     {
-        $start = $range->getStart();
-        $end = $range->getEnd();
         foreach ($this->ranges as $band) {
-            if ( ($band->in($start)) || ($band->in($end)) ) {
+            if ($band->overlap($range)) {
                 throw new \OutOfBoundsException('Ranges cannot overlap');
             }
         }
