@@ -17,6 +17,28 @@ class MeasurementSpec extends ObjectBehavior
         $this->getDistance()->shouldReturn($distance);
     }
 
+    function it_returns_a_valid_measurement_if_i_subtract_from_it()
+    {
+        $inches = new System(System::IMPERIAL, System::INCHES, System::INCH_MICRO, '%d"');
+        $this->beConstructedWith(48, $inches);
+        $metric = new System(System::METRIC, System::CM, System::CM_MICRO, '%dcm');
+        $that  = new Measurement(40, $metric);
+        $theOther = new Measurement(81.92, $metric);
+        $this->subtract($that)->shouldMatchMeasurement($theOther);
+        $this->getDistance()->shouldReturn(48);
+    }
+
+    function it_returns_a_valid_measurement_if_i_add_to_it()
+    {
+        $inches = new System(System::IMPERIAL, System::INCHES, System::INCH_MICRO, '%d"');
+        $this->beConstructedWith(48, $inches);
+        $metric = new System(System::METRIC, System::CM, System::CM_MICRO, '%dcm');
+        $that  = new Measurement(40, $metric);
+        $theOther = new Measurement(161.92, $metric);
+        $this->add($that)->shouldMatchMeasurement($theOther);
+        $this->getDistance()->shouldReturn(48);
+    }
+
     function it_returns_the_system_i_give_it(System $system)
     {
         $distance = 24;
@@ -77,18 +99,17 @@ class MeasurementSpec extends ObjectBehavior
 
     function it_immutably_can_be_converted()
     {
-        $distance = 48;
         $inches = new System(System::IMPERIAL, System::INCHES, System::INCH_MICRO, '%d"');
-        $metric = new System(System::IMPERIAL, System::METRIC, System::CM_MICRO, '%dcm');
+        $metric = new System(System::METRIC, System::CM, System::CM_MICRO, '%dcm');
         $metricMeasurement = new Measurement(121.92, $metric);
         $this->beConstructedWith(48, $inches);
-        $this->convertTo($metric)->shouldMatchDistance($metricMeasurement);
+        $this->convertTo($metric)->shouldMatchMeasurement($metricMeasurement);
     }
 
     public function getMatchers()
     {
         return [
-          'matchDistance' => function($measurement1, $measurement2) {
+          'matchMeasurement' => function($measurement1, $measurement2) {
               return bccomp($measurement1->toBase(), $measurement2->toBase());
           }
         ];

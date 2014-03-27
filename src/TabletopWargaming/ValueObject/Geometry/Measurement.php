@@ -37,6 +37,20 @@ class Measurement
         return $this->distance;
     }
 
+    public function add(Measurement $measurement)
+    {
+        $diff = $this->toBase() + $measurement->toBase();
+        $distance = $this->getSystem()->toUnit($diff);
+        return new self($distance, $this->getSystem());
+    }
+
+    public function subtract(Measurement $measurement)
+    {
+        $diff = $this->toBase() - $measurement->toBase();
+        $distance = $this->getSystem()->toUnit($diff);
+        return new self($distance, $this->getSystem());
+    }
+
     public function convertTo(System $system)
     {
         $distance = $this->system->toBase($this->distance);
@@ -46,7 +60,7 @@ class Measurement
 
     public function toBase()
     {
-        return ($this->isInfinite()) ? INF: $this->system->toBase($this->distance);
+        return ($this->isInfinite()) ? INF : $this->system->toBase($this->distance);
     }
 
     public function isInfinite()
