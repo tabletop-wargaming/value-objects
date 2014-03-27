@@ -28,7 +28,7 @@ class Aggregate
                 throw new \OutOfBoundsException('Ranges cannot overlap');
             }
         }
-        $this->ranges[] = $range;
+        $this->ranges[$range->getStart()] = $range;
     }
 
     public function getEnd()

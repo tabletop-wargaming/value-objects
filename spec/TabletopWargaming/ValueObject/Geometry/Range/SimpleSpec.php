@@ -5,6 +5,7 @@ namespace spec\TabletopWargaming\ValueObject\Geometry\Range;
 use \PhpSpec\ObjectBehavior;
 use \Prophecy\Argument;
 use \TabletopWargaming\ValueObject\Geometry\Measurement;
+use \TabletopWargaming\ValueObject\Geometry\Range;
 use \TabletopWargaming\ValueObject\Geometry\System;
 
 class RangeSpec extends ObjectBehavior
@@ -66,5 +67,11 @@ class RangeSpec extends ObjectBehavior
     ) {
         $end->isInfinite()->willReturn(true);
         $this->isInfinite()->shouldReturn(true);
+    }
+
+    function it_can_tell_me_if_it_overlaps_another_range($start, Range $range)
+    {
+        $range->in($start)->willReturn(true);
+        $this->overlap($range)->shouldReturn(true);
     }
 }

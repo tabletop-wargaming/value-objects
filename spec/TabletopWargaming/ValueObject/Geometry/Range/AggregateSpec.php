@@ -18,11 +18,9 @@ class AggregateSpec extends ObjectBehavior
         $this->getStart()->shouldReturn($measurement);
     }
 
-    function it_gives_me_the_end_measurement(Range $range, Measurement $measurement)
+    function it_gives_me_the_end_measurement(Range $start, Range $end, Measurement $measurement)
     {
-        $range->getStart()->willReturn($measurement);
-        $range->getEnd()->willReturn($measurement);
-        $this->beConstructedWith(array($range));
+        $end->getEnd()->willReturn($end);
         $this->getEnd()->shouldReturn($measurement);
     }
 
