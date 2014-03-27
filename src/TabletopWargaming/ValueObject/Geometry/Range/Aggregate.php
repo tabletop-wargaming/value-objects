@@ -18,7 +18,7 @@ class Aggregate
 
     public function getStart()
     {
-        return $this->ranges[0]->getStart();
+        return reset($this->ranges)->getStart();
     }
 
     private function addRange(Range $range)
@@ -28,12 +28,12 @@ class Aggregate
                 throw new \OutOfBoundsException('Ranges cannot overlap');
             }
         }
-        $this->ranges[$range->getStart()] = $range;
+        $this->ranges[] = $range;
     }
 
     public function getEnd()
     {
-        return $this->ranges[0]->getEnd();
+        return end($this->ranges)->getEnd();
     }
 
     public function in(Measurement $measurement)
