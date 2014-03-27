@@ -4,9 +4,12 @@ namespace TabletopWargaming\ValueObject\Geometry\Range;
 
 use \TabletopWargaming\ValueObject\Geometry\Range;
 use \TabletopWargaming\ValueObject\Geometry\Measurement;
+use \TabletopWargaming\ValueObject\Geometry\Range\RangeTrait;
 
 class Aggregate
 {
+    use RangeTrait;
+
     private $ranges = array();
 
     public function __construct($ranges)
@@ -18,7 +21,10 @@ class Aggregate
 
     public function getStart()
     {
-        return reset($this->ranges)->getStart();
+        $start = null;
+        foreach ($this->ranges as $range) {
+
+        }
     }
 
     private function addRange(Range $range)
@@ -36,7 +42,7 @@ class Aggregate
         return end($this->ranges)->getEnd();
     }
 
-    public function in(Measurement $measurement)
+    public function compare(Measurement $measurement)
     {
         foreach ($this->ranges as $range) {
             if ($range->in($measurement)) {
@@ -45,3 +51,4 @@ class Aggregate
         }
     }
 }
+

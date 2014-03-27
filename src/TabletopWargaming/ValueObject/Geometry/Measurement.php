@@ -2,15 +2,11 @@
 
 namespace TabletopWargaming\ValueObject\Geometry;
 
+use \TabletopWargaming\ValueObject\Comparable;
 use \TabletopWargaming\ValueObject\Geometry\Measurement\System;
 
 class Measurement
 {
-    const EQUAL_TO = 0;
-
-    const GREATER_THAN = 1;
-
-    const LESS_THAN = -1;
 
     const DELTA = 0.00001;
 
@@ -70,17 +66,17 @@ class Measurement
 
     public function isGreaterThan(Measurement $measurement)
     {
-        return ($this->compare($measurement) === self::GREATER_THAN);
+        return ($this->compare($measurement) === Comparable::GREATER_THAN);
     }
 
     public function isLessThan(Measurement $measurement)
     {
-        return ($this->compare($measurement) === self::LESS_THAN);
+        return ($this->compare($measurement) === Comparable::LESS_THAN);
     }
 
     public function isEqualTo(Measurement $measurement)
     {
-        return ($this->compare($measurement) === self::EQUAL_TO);
+        return ($this->compare($measurement) === Comparable::EQUAL_TO);
     }
 
     public function compare(Measurement $measurement)

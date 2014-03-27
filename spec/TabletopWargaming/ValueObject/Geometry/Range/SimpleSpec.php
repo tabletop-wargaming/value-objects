@@ -57,7 +57,7 @@ class RangeSpec extends ObjectBehavior
     {
         $in->isEqualTo($start)->willReturn(false);
         $in->isGreaterThan($start)->willReturn(false);
-        $end->isLessThan($in)->willReturn(false);
+        $end->isGreaterThan($in)->willReturn(false);
         $this->in($in)->shouldReturn(null);
     }
 
@@ -73,5 +73,10 @@ class RangeSpec extends ObjectBehavior
     {
         $range->in($start)->willReturn(true);
         $this->overlap($range)->shouldReturn(true);
+    }
+
+    function it_can_tell_me_if_starts_closer_than_another_range(Range $range)
+    {
+
     }
 }
