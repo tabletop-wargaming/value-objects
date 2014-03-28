@@ -11,5 +11,5 @@ interface Range
 
     public function in(Measurement $measurement);
 
-    public function overlap(Range $range);
+    public function overlaps(Range $range);
 }

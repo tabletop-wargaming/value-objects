@@ -13,6 +13,11 @@ trait RangeTrait
         return $this->getEnd()->isInfinite();
     }
 
+    public function overlaps(Range $range)
+    {
+        return ($range->in($this->getStart())) || ($range->in($this->getEnd()));
+    }
+
     public function in(Measurement $measurement)
     {
         if (Comparable::EQUAL_TO === $this->compare($measurement)) {

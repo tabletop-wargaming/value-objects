@@ -6,7 +6,7 @@ use \TabletopWargaming\ValueObject\Geometry\Range;
 use \TabletopWargaming\ValueObject\Geometry\Measurement;
 use \TabletopWargaming\ValueObject\Geometry\Range\RangeTrait;
 
-class Aggregate
+class Aggregate implements Range
 {
     use RangeTrait;
 
@@ -30,7 +30,7 @@ class Aggregate
     private function addRange(Range $range)
     {
         foreach ($this->ranges as $band) {
-            if ($band->overlap($range)) {
+            if ($band->overlaps($range)) {
                 throw new \OutOfBoundsException('Ranges cannot overlap');
             }
         }
