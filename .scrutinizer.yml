@@ -6,4 +6,3 @@ inherit: true
 
 filter:
   paths: [src]
-
