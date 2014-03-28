@@ -1,6 +1,6 @@
 <?php
 
-namespace TabletopWargaming\ValueObject\Geometry;
+namespace TabletopWargaming\ValueObject\Geometry\Measurement;
 
 class System
 {
@@ -9,6 +9,10 @@ class System
 
     const INCHES    = 'inches';
     const CM        = 'centimetres';
+
+    const FORMAT_IMPERIAL = '%d"';
+
+    const FORMAT_METRIC = '%dcm';
 
     const INCH_MICRO = 25400; // number of μm in an inch
 
@@ -22,12 +26,12 @@ class System
 
     private $format;
 
-    public function __construct($name, $unit, $base, $format)
+    public function __construct($name, $unit, $base, $format = null)
     {
         $this->name     = $name;
         $this->unit     = $unit;
         $this->base     = $base;
-        $this->format   = $format;
+        $this->format   = (string) $format;
     }
 
     public function __toString()
@@ -52,11 +56,11 @@ class System
 
     public function toBase($distance)
     {
-        return (double) $distance * $this->base;
+        return (double) bcmul($distance, $this->base);
     }
 
     public function toUnit($distance)
     {
-        return (double) $distance / $this->base;
+        return (double) bcdiv($distance, $this->base);
     }
 }
