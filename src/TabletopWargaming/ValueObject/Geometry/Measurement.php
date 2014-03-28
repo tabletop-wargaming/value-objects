@@ -4,8 +4,9 @@ namespace TabletopWargaming\ValueObject\Geometry;
 
 use \TabletopWargaming\ValueObject\Comparable;
 use \TabletopWargaming\ValueObject\Geometry\Measurement\System;
+use TabletopWargaming\ValueObject\Renderable;
 
-class Measurement
+class Measurement implements Renderable
 {
 
     const DELTA = 0.00001;
@@ -21,6 +22,16 @@ class Measurement
         $this->distance = $distance;
         $this->system = $system;
         $this->delta = (double) $delta;
+    }
+
+    public function __toString()
+    {
+        return $this->render();
+    }
+
+    public function render()
+    {
+        return $this->getSystem()->render($this->getDistance());
     }
 
     public function getSystem()

@@ -4,6 +4,7 @@ namespace spec\TabletopWargaming\ValueObject\Geometry;
 
 use \PhpSpec\ObjectBehavior;
 use \Prophecy\Argument;
+use TabletopWargaming\ValueObject\Comparable;
 use TabletopWargaming\ValueObject\Geometry\Measurement;
 use \TabletopWargaming\ValueObject\Geometry\Measurement\System;
 
@@ -15,6 +16,14 @@ class MeasurementSpec extends ObjectBehavior
         $distance = 24;
         $this->beConstructedWith($distance, $system);
         $this->getDistance()->shouldReturn($distance);
+    }
+
+    function it_is_to_stringable()
+    {
+        $inches = new System(System::IMPERIAL, System::INCHES, System::INCH_MICRO, '%d"');
+        $this->beConstructedWith(48, $inches);
+        $this->__toString()->shouldReturn('48"');
+
     }
 
     function it_returns_a_valid_measurement_if_i_subtract_from_it()
@@ -84,11 +93,11 @@ class MeasurementSpec extends ObjectBehavior
         $inches = new System(System::IMPERIAL, System::INCHES, System::INCH_MICRO, '%d"');
         $this->beConstructedWith(48, $inches);
         $that = new Measurement(48.1, $inches);
-        $this->compare($that)->shouldReturn(-1);
+        $this->compare($that)->shouldReturn(Comparable::LESS_THAN);
         $that = new Measurement(48, $inches);
-        $this->compare($that)->shouldReturn(0);
+        $this->compare($that)->shouldReturn(Comparable::EQUAL_TO);
         $that = new Measurement(47.99, $inches);
-        $this->compare($that)->shouldReturn(1);
+        $this->compare($that)->shouldReturn(Comparable::GREATER_THAN);
     }
 
     function it_can_be_infinite()

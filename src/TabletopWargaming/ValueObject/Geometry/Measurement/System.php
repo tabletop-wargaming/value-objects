@@ -10,6 +10,10 @@ class System
     const INCHES    = 'inches';
     const CM        = 'centimetres';
 
+    const FORMAT_IMPERIAL = '%d"';
+
+    const FORMAT_METRIC = '%dcm';
+
     const INCH_MICRO = 25400; // number of μm in an inch
 
     const CM_MICRO = 10000; // number of μm in a cm
@@ -22,12 +26,12 @@ class System
 
     private $format;
 
-    public function __construct($name, $unit, $base, $format)
+    public function __construct($name, $unit, $base, $format = null)
     {
         $this->name     = $name;
         $this->unit     = $unit;
         $this->base     = $base;
-        $this->format   = $format;
+        $this->format   = (string) $format;
     }
 
     public function __toString()

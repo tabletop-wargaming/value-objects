@@ -19,6 +19,20 @@ class RangeSpec extends ObjectBehavior
         $this->beConstructedWith($start, $end);
     }
 
+    function it_is_to_strinagable()
+    {
+        $system = new System(
+            System::IMPERIAL,
+            System::INCHES,
+            System::INCH_MICRO,
+            System::FORMAT_IMPERIAL
+        );
+        $start = new Measurement($i, $system);
+        $end = new Measurement($i+8, $system);
+
+        $this->beConstructedWith($start, $end);
+    }
+
     function it_should_return_the_start_measurement($start)
     {
         $this->getStart()->shouldReturn($start);

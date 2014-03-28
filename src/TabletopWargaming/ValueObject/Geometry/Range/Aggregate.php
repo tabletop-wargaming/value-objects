@@ -21,20 +21,27 @@ class Aggregate implements Range
 
     public function getStart()
     {
-        $start = null;
-        foreach ($this->ranges as $range) {
+        return min($this->ranges)->getStart();
+    }
 
-        }
+    private function sort(Range $first, Range $second)
+    {
+        $firstStart = $first->getStart();
+        $secondStart = $second->getStart();
+        return $firstStart->compare($secondStart);
     }
 
     private function addRange(Range $range)
     {
-        foreach ($this->ranges as $band) {
-            if ($band->overlaps($range)) {
-                throw new \OutOfBoundsException('Ranges cannot overlap');
+        $ranges = $this->ranges;
+        foreach ($ranges as $band) {
+            if ($range->overlaps($band)) {
+                throw new \OutOfBoundsException("Ranges cannot overlap, ($band) ($range)");
             }
         }
-        $this->ranges[] = $range;
+        $ranges[] = $range;
+        @usort($ranges, array($this, 'sort'));
+        $this->ranges = $ranges;
     }
 
     public function getEnd()
@@ -42,7 +49,7 @@ class Aggregate implements Range
         return end($this->ranges)->getEnd();
     }
 
-    public function compare(Measurement $measurement)
+    public function in(Measurement $measurement)
     {
         foreach ($this->ranges as $range) {
             if ($range->in($measurement)) {

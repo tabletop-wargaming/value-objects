@@ -1,7 +1,9 @@
 <?php
 namespace TabletopWargaming\ValueObject\Geometry;
 
-interface Range
+use \TabletopWargaming\ValueObject\Renderable;
+
+interface Range extends Renderable
 {
     public function getStart();
 

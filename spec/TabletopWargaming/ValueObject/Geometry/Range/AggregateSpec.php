@@ -5,42 +5,66 @@ namespace spec\TabletopWargaming\ValueObject\Geometry\Range;
 use \PhpSpec\ObjectBehavior;
 use \Prophecy\Argument;
 use \TabletopWargaming\ValueObject\Geometry\Measurement;
+use \TabletopWargaming\ValueObject\Geometry\Measurement\System;
 use \TabletopWargaming\ValueObject\Geometry\Range;
+use \TabletopWargaming\ValueObject\Geometry\Range\Simple;
 
 class AggregateSpec extends ObjectBehavior
 {
-
-    function it_gives_me_the_start(Range $range, Measurement $measurement)
+    public function let()
     {
-        $range->getStart()->willReturn($measurement);
-        $range->getEnd()->willReturn($measurement);
-        $this->beConstructedWith(array($range));
-        $this->getStart()->shouldReturn($measurement);
+        $system = new System(
+            System::IMPERIAL,
+            System::INCHES,
+            System::INCH_MICRO,
+            System::FORMAT_IMPERIAL
+        );
+
+        for ($i=0; $i<48; $i+=8) {
+            $start = new Measurement($i, $system);
+            $end = new Measurement($i + 8, $system);
+            $ranges[] = new Simple($start, $end);
+        }
+        shuffle($ranges);
+        $this->beConstructedWith($ranges);
     }
 
-    function it_gives_me_the_end_measurement(Range $start, Range $end, Measurement $measurement)
+    function it_gives_me_the_start()
     {
-        $this->beConstructedWith(array($start, $end));
-        $end->getEnd()->willReturn($measurement);
-        $this->getEnd()->shouldReturn($measurement);
+        $system = new System(
+            System::IMPERIAL,
+            System::INCHES,
+            System::INCH_MICRO,
+            System::FORMAT_IMPERIAL
+        );
+        $start = new Measurement(0, $system);
+        $this->getStart()->shouldBeLike($start);
     }
 
-    function it_gives_me_the_range_a_measurement_is_in(
-       Range $first,
-       Range $second,
-       Range $third,
-       Measurement $m,
-       Measurement $in
-    )
+    function it_gives_me_the_end_measurement()
     {
-        $first->overlap($second)->willReturn(false);
-        $first->overlap($third)->willReturn(false);
-        $second->overlap($third)->willReturn(false);
+        $system = new System(
+            System::IMPERIAL,
+            System::INCHES,
+            System::INCH_MICRO,
+            System::FORMAT_IMPERIAL
+        );
+        $end = new Measurement(48, $system);
+        $this->getEnd()->shouldBeLike($end);
+    }
 
-        $first->in($in)->willReturn(null);
-        $second->in($in)->willReturn($second);
-        $this->beConstructedWith(array($first, $second, $third));
-        $this->in($in)->shouldReturn($second);
-
+    function it_gives_me_the_range_a_measurement_is_in()
+    {
+        $system = new System(
+            System::IMPERIAL,
+            System::INCHES,
+            System::INCH_MICRO,
+            System::FORMAT_IMPERIAL
+        );
+        $in = new Measurement(47, $system);
+        $start = new Measurement(40, $system);
+        $end = new Measurement(48, $system);
+        $range = new Simple($start, $end);
+        $this->in($in)->shouldBeLike($range);
     }
 }

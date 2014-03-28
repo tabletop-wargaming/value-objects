@@ -34,15 +34,11 @@ class Simple implements Range
         return $this->end;
     }
 
-    public function compare(Measurement $measurement)
+    public function in(Measurement $measurement)
     {
-        $diff = Comparable::EQUAL_TO;
-        if ($measurement->isLessThan($this->getStart())) {
-            $diff = Comparable::LESS_THAN;
+        $compare = $this->compare($measurement);
+        if (Comparable::EQUAL_TO === $compare) {
+            return $this;
         }
-        if ($measurement->isGreaterThan($this->getEnd())) {
-            $diff = Comparable::GREATER_THAN;
-        }
-        return $diff;
     }
 }
