@@ -3,55 +3,9 @@
 namespace TabletopWargaming\ValueObject\Army;
 
 use \ArrayAccess;
+use \OuterIterator;
 
-class ArmyList implements ArrayAccess, Iterator
+interface ArmyList extends ArrayAccess, OuterIterator
 {
-    private $troops = array();
 
-
-
-    public function current()
-    {
-
-    }
-
-    public function key()
-    {
-
-    }
-
-    public function next()
-    {
-
-    }
-
-    public function rewind()
-    {
-
-    }
-
-    public function valid()
-    {
-
-    }
-
-    public function offsetSet($troopId, $troop)
-    {
-
-    }
-
-    public function offsetGet($troopId)
-    {
-
-    }
-
-    public function offsetExists($troopId)
-    {
-
-    }
-
-    public function offsetUnset($troopId)
-    {
-
-    }
 }
