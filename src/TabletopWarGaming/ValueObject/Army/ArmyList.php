@@ -3,55 +3,12 @@
 namespace TabletopWargaming\ValueObject\Army;
 
 use \ArrayAccess;
+use \Countable;
+use \OuterIterator;
+use \RecursiveIterator;
+use \SeekableIterator;
 
-class ArmyList implements ArrayAccess, Iterator
+interface ArmyList extends ArrayAccess, Countable, OuterIterator, RecursiveIterator, SeekableIterator
 {
-    private $troops = array();
-
-
-
-    public function current()
-    {
-
-    }
-
-    public function key()
-    {
-
-    }
-
-    public function next()
-    {
-
-    }
-
-    public function rewind()
-    {
-
-    }
-
-    public function valid()
-    {
-
-    }
-
-    public function offsetSet($troopId, $troop)
-    {
-
-    }
-
-    public function offsetGet($troopId)
-    {
-
-    }
-
-    public function offsetExists($troopId)
-    {
-
-    }
-
-    public function offsetUnset($troopId)
-    {
-
-    }
+    public function getFilter();
 }
