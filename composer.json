@@ -12,8 +12,9 @@
         }
     ],
     "require": {
-        "php":                          ">=5.4",
-        "ext-bcmath":                   "*"
+        "php":                              ">=5.4",
+        "tabletop-wargaming/common":        "dev-master",
+        "tabletop-wargaming/vo-euclidean":  "dev-master"
     },
     "require-dev": {
         "phpspec/phpspec":              "2.0.*@dev",
@@ -28,5 +29,5 @@
     "config": {
         "bin-dir": "bin"
     },
-    "autoload": {"psr-0": {"TabletopWargaming\\ValueObject": "src/"}}
+    "autoload": {"psr-4": {"TabletopWargaming\\ValueObject\\": "src/"}}
 }
